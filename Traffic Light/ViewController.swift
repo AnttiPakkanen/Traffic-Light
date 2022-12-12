@@ -9,20 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-    
     @IBOutlet var trafficLightButton: UIButton!
     @IBOutlet var greenTrafficLight: UIView!
     @IBOutlet var yellowTrafficLight: UIView!
     @IBOutlet var redTrafficLight: UIView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        redTrafficLight.layer.cornerRadius = redTrafficLight.frame.width / 2
-        yellowTrafficLight.layer.cornerRadius = yellowTrafficLight.frame.width / 2
-        greenTrafficLight.layer.cornerRadius = greenTrafficLight.frame.width / 2
-        trafficLightButton.layer.cornerRadius = 10
-    }
     
     enum TrafficLight {
         case redLight
@@ -32,6 +22,17 @@ class ViewController: UIViewController {
     }
     
     var trafficLight = TrafficLight.redLight
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        trafficLightButton.layer.cornerRadius = 10
+    }
+    
+    override func viewDidLayoutSubviews() {
+        redTrafficLight.layer.cornerRadius = redTrafficLight.frame.width / 2
+        yellowTrafficLight.layer.cornerRadius = yellowTrafficLight.frame.width / 2
+        greenTrafficLight.layer.cornerRadius = greenTrafficLight.frame.width / 2
+    }
     
     @IBAction func trafficLightButtonDidTapped() {
         trafficLightButton.setTitle("NEXT", for: .normal)
