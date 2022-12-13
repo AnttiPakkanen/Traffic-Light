@@ -14,14 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet var yellowTrafficLight: UIView!
     @IBOutlet var redTrafficLight: UIView!
     
-    enum TrafficLight {
+    private enum TrafficLight {
         case redLight
         case yellowLight
         case greenLight
         case trafficLightOff
     }
     
-    var trafficLight = TrafficLight.redLight
+    private var trafficLight = TrafficLight.redLight
     
     override func viewDidLoad() {
         super.viewDidLoad()
